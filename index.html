@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para o meu Guinho ❤️</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff416c, #8e2de2);
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.tela {
+    min-height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.ativa {
+    display: flex;
+}
+
+h1 {
+    font-size: 46px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+p {
+    font-size: 21px;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+button {
+    border: none;
+    background: white;
+    color: #ff416c;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 30px;
+    font-size: 19px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.coracao {
+    position: fixed;
+    bottom: -30px;
+    font-size: 25px;
+    animation: subir 5s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes subir {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+
+}
+
+.nome {
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.final {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- INÍCIO -->
+
+<div class="tela ativa" id="tela1">
+
+<h1>Oi, Guinho! ❤️</h1>
+
+<p>
+Se você chegou até aqui,
+é porque uma certa Vick preparou
+uma pequena surpresa para você. 👀
+</p>
+
+<p>
+Mas cuidado...
+isso pode ficar bem meloso. 😂❤️
+</p>
+
+<button onclick="proximaTela(2)">
+Quero ver! 🥰
+</button>
+
+</div>
+
+
+<!-- PERGUNTA -->
+
+<div class="tela" id="tela2">
+
+<h2>Guinho, posso te fazer uma pergunta? 👀</h2>
+
+<p>
+Você sabe o quanto é importante
+para a Vick?
+</p>
+
+<button onclick="sim()">
+Sei ❤️
+</button>
+
+<button onclick="nao()">
+Não sei 😭
+</button>
+
+</div>
+
+
+<!-- RESPOSTA -->
+
+<div class="tela" id="tela3">
+
+<h2>Então deixa eu te lembrar... 🥹❤️</h2>
+
+<p>
+Você é aquela pessoa que consegue
+me fazer sorrir até quando eu não estou
+tão bem.
+</p>
+
+<p>
+E mesmo quando consegue me irritar...
+eu continuo gostando de você. 😂❤️
+</p>
+
+<button onclick="proximaTela(4)">
+Continua... 👀
+</button>
+
+</div>
+
+
+<!-- DECLARAÇÃO -->
+
+<div class="tela" id="tela4">
+
+<h2>Guinho ❤️</h2>
+
+<p>
+Eu não sei explicar exatamente
+quando você se tornou tão importante
+para mim.
+</p>
+
+<p>
+Só sei que hoje você faz parte
+dos meus pensamentos, dos meus sorrisos
+e dos meus melhores momentos.
+</p>
+
+<button onclick="proximaTela(5)">
+Tem mais? 🥹
+</button>
+
+</div>
+
+
+<!-- MOMENTOS -->
+
+<div class="tela" id="tela5">
+
+<h2>Eu escolheria você. ❤️</h2>
+
+<p>
+Nos dias tranquilos.
+</p>
+
+<p>
+Nos dias difíceis.
+</p>
+
+<p>
+Nas risadas.
+</p>
+
+<p>
+Nas brincadeiras.
+</p>
+
+<p>
+E até nas nossas pequenas discussões. 😂
+</p>
+
+<button onclick="proximaTela(6)">
+Última parte... 💌
+</button>
+
+</div>
+
+
+<!-- FINAL -->
+
+<div class="tela" id="tela6">
+
+<p class="nome">
+Vick ❤️ Guinho
+</p>
+
+<h2>Uma coisa que eu quero que você saiba...</h2>
+
+<p class="final">
+Eu amo ter você na minha vida.
+</p>
+
+<p>
+Obrigada por cada sorriso,
+cada conversa, cada momento
+e por simplesmente ser você.
+</p>
+
+<p>
+Espero que a gente ainda tenha
+muitos capítulos para viver juntos. ❤️
+</p>
+
+<button onclick="finalSurpresa()">
+Clique aqui, Guinho 💖
+</button>
+
+</div>
+
+
+<!-- SURPRESA FINAL -->
+
+<div class="tela" id="tela7">
+
+<h1>🥹❤️</h1>
+
+<h2>Você chegou até o final!</h2>
+
+<p class="final">
+Então agora não tem mais como fugir...
+</p>
+
+<p>
+A Vick gosta MUITO de você. ❤️
+</p>
+
+<p>
+E essa foi só uma pequena forma
+de te lembrar disso.
+</p>
+
+<h1>Vick ❤️ Guinho</h1>
+
+<p>
+Para sempre no meu coração. 💕
+</p>
+
+</div>
+
+
+<script>
+
+function proximaTela(numero) {
+
+    document.querySelectorAll(".tela").forEach(function(tela) {
+        tela.classList.remove("ativa");
+    });
+
+    document.getElementById("tela" + numero).classList.add("ativa");
+
+    criarCoracoes();
+
+}
+
+
+function sim() {
+
+    alert("Eu sabia! 😂❤️");
+
+    proximaTela(3);
+
+}
+
+
+function nao() {
+
+    alert("Então agora você vai descobrir! 😂❤️");
+
+    proximaTela(3);
+
+}
+
+
+function criarCoracoes() {
+
+    for(let i = 0; i < 12; i++) {
+
+        let coracao = document.createElement("div");
+
+        coracao.className = "coracao";
+
+        coracao.innerHTML = ["❤️","💕","💖","💗","💓"][Math.floor(Math.random() * 5)];
+
+        coracao.style.left = Math.random() * 100 + "%";
+
+        coracao.style.animationDuration =
+            (3 + Math.random() * 4) + "s";
+
+        document.body.appendChild(coracao);
+
+        setTimeout(function() {
+            coracao.remove();
+        }, 7000);
+
+    }
+
+}
+
+
+function finalSurpresa() {
+
+    proximaTela(7);
+
+    for(let i = 0; i < 5; i++) {
+        setTimeout(criarCoracoes, i * 300);
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+}
+
+h1 {
+    font-size: 45px;
+}
+
+p {
+    font-size: 22px;
+}
+
+button {
+    background: white;
+    color: #ff4f81;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Oi, meu amor! ❤️</h1>
+
+<p>Eu preparei uma surpresa especialmente para você...</p>
+
+<p>Você está pronto? 🥰</p>
+
+<button onclick="comecar()">Clique aqui 💕</button>
+
+</div>
+
+<script>
+function comecar() {
+    alert("Então vamos começar nossa surpresa! ❤️");
+}
+</script>
+
+</body>
+</html>
