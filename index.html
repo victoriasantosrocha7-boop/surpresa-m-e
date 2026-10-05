@@ -3,415 +3,836 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Para o meu Guinho ❤️</title>
+<title>Para Mamãe 🌻</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
 
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    min-height:100vh;
+    font-family:'DM Sans',sans-serif;
+    background:
+      radial-gradient(circle at 10% 10%,#fff 0,transparent 20%),
+      radial-gradient(circle at 90% 90%,#fff8c7 0,transparent 25%),
+      linear-gradient(135deg,#fff9dc,#f7d65b,#eebd24);
+    color:#4b3600;
+    overflow-x:hidden;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ff416c, #8e2de2);
-    color: white;
-    text-align: center;
-    overflow: hidden;
+button{
+    font-family:inherit;
 }
 
-.tela {
-    min-height: 100vh;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 30px;
+#app{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:25px;
+    position:relative;
 }
 
-.ativa {
-    display: flex;
+.card{
+    width:min(760px,100%);
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.9);
+    border-radius:32px;
+    padding:42px 28px;
+    text-align:center;
+    box-shadow:0 25px 70px rgba(80,55,0,.18);
+    animation:entrada .8s ease;
 }
 
-h1 {
-    font-size: 46px;
-    margin-bottom: 15px;
+@keyframes entrada{
+    from{opacity:0;transform:translateY(25px)}
+    to{opacity:1;transform:translateY(0)}
 }
 
-h2 {
-    font-size: 32px;
+.screen{display:none}
+.screen.active{display:block}
+
+.flower{
+    font-size:64px;
+    animation:balanco 3s infinite ease-in-out;
 }
 
-p {
-    font-size: 21px;
-    max-width: 700px;
-    line-height: 1.6;
+@keyframes balanco{
+    0%,100%{transform:rotate(-5deg)}
+    50%{transform:rotate(5deg)}
 }
 
-button {
-    border: none;
-    background: white;
-    color: #ff416c;
-    padding: 15px 30px;
-    margin: 10px;
-    border-radius: 30px;
-    font-size: 19px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: bold;
+.label{
+    margin-top:15px;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:11px;
+    font-weight:700;
+    color:#9a7000;
 }
 
-button:hover {
-    transform: scale(1.1);
+h1,h2{
+    font-family:'Playfair Display',serif;
 }
 
-.coracao {
-    position: fixed;
-    bottom: -30px;
-    font-size: 25px;
-    animation: subir 5s linear forwards;
-    pointer-events: none;
+h1{
+    font-size:clamp(38px,7vw,64px);
+    line-height:1.05;
+    margin:15px 0;
 }
 
-@keyframes subir {
-
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-    }
-
+h1 span{
+    color:#c89100;
 }
 
-.nome {
-    font-size: 55px;
-    font-weight: bold;
+h2{
+    font-size:34px;
+    margin:15px 0;
 }
 
-.final {
-    font-size: 25px;
-    font-weight: bold;
+p{
+    line-height:1.75;
+    color:#70591f;
+    font-size:16px;
 }
 
+.main-btn{
+    margin-top:28px;
+    border:0;
+    border-radius:50px;
+    padding:15px 28px;
+    background:#4c3600;
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+    transition:.25s;
+    box-shadow:0 10px 25px rgba(75,54,0,.2);
+}
+
+.main-btn:hover{
+    transform:translateY(-3px);
+    background:#705100;
+}
+
+.choice-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-top:25px;
+}
+
+.choice{
+    border:2px solid #efd77d;
+    background:#fffdf0;
+    border-radius:18px;
+    padding:17px 12px;
+    cursor:pointer;
+    font-size:15px;
+    color:#594300;
+    transition:.25s;
+}
+
+.choice:hover{
+    transform:translateY(-3px);
+    border-color:#d5a900;
+    background:#fff8cf;
+}
+
+.feedback{
+    min-height:28px;
+    margin-top:18px;
+    font-weight:700;
+}
+
+.progress{
+    margin:22px auto 0;
+    height:7px;
+    max-width:420px;
+    background:#eee2ae;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:#d8a800;
+    transition:.4s;
+}
+
+.gifts{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:28px;
+}
+
+.gift{
+    min-height:150px;
+    border:0;
+    border-radius:22px;
+    background:linear-gradient(145deg,#fff9d5,#f4d76b);
+    box-shadow:0 12px 25px rgba(100,70,0,.12);
+    cursor:pointer;
+    font-size:45px;
+    transition:.3s;
+}
+
+.gift:hover{
+    transform:translateY(-7px) rotate(-2deg);
+}
+
+.gift small{
+    display:block;
+    margin-top:10px;
+    font-size:12px;
+    color:#755600;
+    font-weight:700;
+}
+
+.reveal{
+    margin-top:22px;
+    min-height:55px;
+    font-weight:600;
+}
+
+.memory-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:25px;
+}
+
+.memory{
+    min-height:150px;
+    perspective:800px;
+    cursor:pointer;
+}
+
+.memory-inner{
+    position:relative;
+    width:100%;
+    height:100%;
+    min-height:150px;
+    transition:transform .6s;
+    transform-style:preserve-3d;
+}
+
+.memory.open .memory-inner{
+    transform:rotateY(180deg);
+}
+
+.memory-front,
+.memory-back{
+    position:absolute;
+    inset:0;
+    border-radius:20px;
+    backface-visibility:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.memory-front{
+    background:#fff6c6;
+    font-size:38px;
+}
+
+.memory-back{
+    background:#4c3600;
+    color:white;
+    transform:rotateY(180deg);
+    line-height:1.5;
+    font-size:14px;
+}
+
+.letter{
+    margin:25px auto 0;
+    max-width:580px;
+    background:#fffdf1;
+    border:1px solid #ead27b;
+    border-radius:20px;
+    padding:25px;
+    text-align:left;
+    line-height:1.8;
+    box-shadow:0 10px 30px rgba(70,50,0,.08);
+}
+
+.signature{
+    text-align:right;
+    margin-top:20px;
+    font-family:'Playfair Display',serif;
+    font-size:23px;
+    color:#a77800;
+}
+
+.heart{
+    position:fixed;
+    bottom:-30px;
+    pointer-events:none;
+    z-index:20;
+    animation:subir 4s linear forwards;
+}
+
+@keyframes subir{
+    0%{opacity:0;transform:translateY(0) scale(.6)}
+    15%{opacity:1}
+    100%{opacity:0;transform:translateY(-105vh) scale(1.5) rotate(20deg)}
+}
+
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.star{
+    position:absolute;
+    color:white;
+    animation:piscar 2s infinite alternate;
+}
+
+@keyframes piscar{
+    from{opacity:.2;transform:scale(.7)}
+    to{opacity:1;transform:scale(1.2)}
+}
+
+.counter{
+    margin:25px auto;
+    font-size:50px;
+    font-weight:700;
+    color:#bd8800;
+}
+
+@media(max-width:600px){
+    .card{padding:35px 20px;border-radius:25px}
+    .choice-grid,.memory-grid{grid-template-columns:1fr}
+    .gifts{grid-template-columns:1fr}
+    h1{font-size:42px}
+}
 </style>
 </head>
 
 <body>
 
+<div class="stars" id="stars"></div>
 
-<!-- INÍCIO -->
+<div id="app">
+<div class="card">
 
-<div class="tela ativa" id="tela1">
+<!-- TELA 1 -->
+<section class="screen active" id="tela1">
 
-<h1>Oi, Guinho! ❤️</h1>
+<div class="flower">🌻</div>
+
+<div class="label">Uma surpresa especial</div>
+
+<h1>
+Para a <span>mãe</span> mais incrível
+</h1>
 
 <p>
-Se você chegou até aqui,
-é porque uma certa Vick preparou
-uma pequena surpresa para você. 👀
+Existe uma pessoa que merece uma surpresa especial hoje...
+e talvez você já saiba quem é. 💛
 </p>
+
+<button class="main-btn" onclick="irPara(2)">
+✨ Quero descobrir
+</button>
+
+</section>
+
+
+<!-- TELA 2 -->
+<section class="screen" id="tela2">
+
+<div class="flower">🥰</div>
+
+<div class="label">Antes de continuar...</div>
+
+<h2>Você aceita um pequeno desafio?</h2>
+
+<p>Antes de continuar, quero descobrir se a Mãe está pronta para uma surpresa feita com muito amor. 💛</p>
 
 <p>
-Mas cuidado...
-isso pode ficar bem meloso. 😂❤️
+São algumas perguntinhas. No final existe uma surpresa. 🌻
 </p>
 
-<button onclick="proximaTela(2)">
-Quero ver! 🥰
+<button class="main-btn" onclick="irPara(3)">
+💛 Aceito!
+</button>
+
+</section>
+
+
+<!-- TELA 3 QUIZ -->
+<section class="screen" id="tela3">
+
+<div class="label">Desafio da mamãe</div>
+
+<h2 id="pergunta"></h2>
+
+<div class="choice-grid" id="opcoes"></div>
+
+<div class="feedback" id="feedback"></div>
+
+<div class="progress">
+<div class="progress-bar" id="progress"></div>
+</div>
+
+</section>
+
+
+<!-- TELA 4 PRESENTES -->
+<section class="screen" id="tela4">
+
+<div class="flower">🎁</div>
+
+<div class="label">Você desbloqueou uma surpresa</div>
+
+<h2>Escolha uma caixinha</h2>
+
+<p>
+Mas cuidado... cada uma esconde uma mensagem diferente. 👀
+</p>
+
+<div class="gifts">
+
+<button class="gift" onclick="abrirPresente(1)">
+🎁
+<small>Caixinha 1</small>
+</button>
+
+<button class="gift" onclick="abrirPresente(2)">
+🎀
+<small>Caixinha 2</small>
+</button>
+
+<button class="gift" onclick="abrirPresente(3)">
+💛
+<small>Caixinha 3</small>
 </button>
 
 </div>
 
+<div class="reveal" id="reveal"></div>
 
-<!-- PERGUNTA -->
+<button class="main-btn" id="btnMemorias" style="display:none" onclick="irPara(5)">
+📸 Ver memórias
+</button>
 
-<div class="tela" id="tela2">
+</section>
 
-<h2>Guinho, posso te fazer uma pergunta? 👀</h2>
+
+<!-- TELA 5 MEMÓRIAS -->
+<section class="screen" id="tela5">
+
+<div class="flower">📸</div>
+
+<div class="label">Pequenas lembranças</div>
+
+<h2>Clique nos cartões 💛</h2>
 
 <p>
-Você sabe o quanto é importante
-para a Vick?
+Cada cartão guarda uma mensagem.
 </p>
 
-<button onclick="sim()">
-Sei ❤️
-</button>
+<div class="memory-grid">
 
-<button onclick="nao()">
-Não sei 😭
-</button>
+<div class="memory" onclick="virar(this)">
+<div class="memory-inner">
+<div class="memory-front">🌻</div>
+<div class="memory-back">
+Seu abraço sempre foi um dos meus lugares favoritos.
+</div>
+</div>
+</div>
+
+<div class="memory" onclick="virar(this)">
+<div class="memory-inner">
+<div class="memory-front">💛</div>
+<div class="memory-back">
+Obrigada por acreditar em mim até quando eu mesma duvidei.
+</div>
+</div>
+</div>
+
+<div class="memory" onclick="virar(this)">
+<div class="memory-inner">
+<div class="memory-front">✨</div>
+<div class="memory-back">
+Você consegue transformar momentos simples em lembranças especiais.
+</div>
+</div>
+</div>
+
+<div class="memory" onclick="virar(this)">
+<div class="memory-inner">
+<div class="memory-front">🥹</div>
+<div class="memory-back">
+Eu tenho muita sorte de poder chamar você de mãe.
+</div>
+</div>
+</div>
 
 </div>
 
-
-<!-- RESPOSTA -->
-
-<div class="tela" id="tela3">
-
-<h2>Então deixa eu te lembrar... 🥹❤️</h2>
-
-<p>
-Você é aquela pessoa que consegue
-me fazer sorrir até quando eu não estou
-tão bem.
-</p>
-
-<p>
-E mesmo quando consegue me irritar...
-eu continuo gostando de você. 😂❤️
-</p>
-
-<button onclick="proximaTela(4)">
-Continua... 👀
+<button class="main-btn" onclick="irPara(6)">
+💌 Abrir uma carta
 </button>
 
-</div>
+</section>
 
 
-<!-- DECLARAÇÃO -->
+<!-- TELA 6 CARTA -->
+<section class="screen" id="tela6">
 
-<div class="tela" id="tela4">
+<div class="flower">💌</div>
 
-<h2>Guinho ❤️</h2>
+<div class="label">Uma carta só para você</div>
 
-<p>
-Eu não sei explicar exatamente
-quando você se tornou tão importante
-para mim.
-</p>
+<h2>Abra quando estiver pronta...</h2>
 
-<p>
-Só sei que hoje você faz parte
-dos meus pensamentos, dos meus sorrisos
-e dos meus melhores momentos.
-</p>
-
-<button onclick="proximaTela(5)">
-Tem mais? 🥹
+<button class="main-btn" id="abrirCarta" onclick="abrirCarta()">
+🔐 Abrir carta
 </button>
 
+<div class="letter" id="carta" style="display:none">
+
+<p>
+Mãe,
+</p>
+
+<p>
+Eu poderia escrever milhares de palavras e ainda assim
+seria difícil explicar o tamanho do meu amor por você.
+</p>
+
+<p>
+Obrigada por cada cuidado, por cada conselho, por cada
+momento em que você esteve ao meu lado e por tudo aquilo
+que talvez eu nem tenha percebido na hora, mas que hoje
+entendo o quanto foi importante.
+</p>
+
+<p>
+Você é uma parte muito especial da minha história.
+E eu espero poder retribuir, mesmo que um pouquinho,
+todo o amor que você sempre me deu.
+</p>
+
+<p>
+Nunca se esqueça:
+<strong>você é muito amada.</strong> 💛
+</p>
+
+<div class="signature">
+Com amor, sua filha 🌻
 </div>
 
+</div>
 
-<!-- MOMENTOS -->
-
-<div class="tela" id="tela5">
-
-<h2>Eu escolheria você. ❤️</h2>
-
-<p>
-Nos dias tranquilos.
-</p>
-
-<p>
-Nos dias difíceis.
-</p>
-
-<p>
-Nas risadas.
-</p>
-
-<p>
-Nas brincadeiras.
-</p>
-
-<p>
-E até nas nossas pequenas discussões. 😂
-</p>
-
-<button onclick="proximaTela(6)">
-Última parte... 💌
+<button class="main-btn" id="finalBtn" style="display:none" onclick="irPara(7)">
+✨ Última surpresa
 </button>
 
-</div>
+</section>
 
 
-<!-- FINAL -->
+<!-- TELA 7 FINAL -->
+<section class="screen" id="tela7">
 
-<div class="tela" id="tela6">
+<div class="flower">🌻</div>
 
-<p class="nome">
-Vick ❤️ Guinho
-</p>
+<div class="label">Surpresa desbloqueada</div>
 
-<h2>Uma coisa que eu quero que você saiba...</h2>
-
-<p class="final">
-Eu amo ter você na minha vida.
-</p>
+<h2>Você chegou até aqui! 🥹</h2>
 
 <p>
-Obrigada por cada sorriso,
-cada conversa, cada momento
-e por simplesmente ser você.
+E agora existe uma última coisa que eu preciso dizer...
 </p>
+
+<div class="counter" id="counter">0%</div>
 
 <p>
-Espero que a gente ainda tenha
-muitos capítulos para viver juntos. ❤️
+Meu amor por você não cabe em uma porcentagem,
+mas vamos tentar contar mesmo assim. 😂💛
 </p>
 
-<button onclick="finalSurpresa()">
-Clique aqui, Guinho 💖
+<button class="main-btn" onclick="finalizar()">
+💛 Descobrir
 </button>
 
-</div>
+<div id="finalMessage"></div>
 
-
-<!-- SURPRESA FINAL -->
-
-<div class="tela" id="tela7">
-
-<h1>🥹❤️</h1>
-
-<h2>Você chegou até o final!</h2>
-
-<p class="final">
-Então agora não tem mais como fugir...
-</p>
-
-<p>
-A Vick gosta MUITO de você. ❤️
-</p>
-
-<p>
-E essa foi só uma pequena forma
-de te lembrar disso.
-</p>
-
-<h1>Vick ❤️ Guinho</h1>
-
-<p>
-Para sempre no meu coração. 💕
-</p>
+</section>
 
 </div>
-
+</div>
 
 <script>
 
-function proximaTela(numero) {
+const perguntas = [
+{
+q:"Quem é a pessoa que mais merece um abraço hoje?",
+op:["Mamãe 💛","O vizinho 😂","O cachorro 🐶","Ninguém 😅"],
+correta:0
+},
+{
+q:"Quem provavelmente daria o melhor conselho?",
+op:["Mamãe 🌻","Google 😂","Um pombo 🐦","Eu mesma 😎"],
+correta:0
+},
+{
+q:"Qual dessas combina mais com a mamãe?",
+op:["Carinho 💛","Confusão 😂","Aventura 🌎","Todas as anteriores 😍"],
+correta:3
+}
+];
 
-    document.querySelectorAll(".tela").forEach(function(tela) {
-        tela.classList.remove("ativa");
+let perguntaAtual=0;
+let acertos=0;
+let presentes=0;
+
+function irPara(numero){
+
+    document.querySelectorAll(".screen")
+    .forEach(s=>s.classList.remove("active"));
+
+    document.getElementById("tela"+numero)
+    .classList.add("active");
+
+    window.scrollTo({top:0,behavior:"smooth"});
+
+    if(numero===3) carregarPergunta();
+}
+
+function carregarPergunta(){
+
+    const p=perguntas[perguntaAtual];
+
+    document.getElementById("pergunta").textContent=p.q;
+
+    const opcoes=document.getElementById("opcoes");
+
+    opcoes.innerHTML="";
+
+    p.op.forEach((texto,index)=>{
+
+        const btn=document.createElement("button");
+
+        btn.className="choice";
+
+        btn.textContent=texto;
+
+        btn.onclick=()=>responder(index);
+
+        opcoes.appendChild(btn);
+
     });
 
-    document.getElementById("tela" + numero).classList.add("ativa");
+    document.getElementById("feedback").textContent="";
 
-    criarCoracoes();
-
+    document.getElementById("progress").style.width=
+    ((perguntaAtual)/perguntas.length*100)+"%";
 }
 
+function responder(index){
 
-function sim() {
+    const p=perguntas[perguntaAtual];
 
-    alert("Eu sabia! 😂❤️");
+    const feedback=document.getElementById("feedback");
 
-    proximaTela(3);
+    if(index===p.correta){
 
-}
+        acertos++;
 
+        feedback.textContent="🎉 Acertou! Muito bem!";
 
-function nao() {
+    }else{
 
-    alert("Então agora você vai descobrir! 😂❤️");
-
-    proximaTela(3);
-
-}
-
-
-function criarCoracoes() {
-
-    for(let i = 0; i < 12; i++) {
-
-        let coracao = document.createElement("div");
-
-        coracao.className = "coracao";
-
-        coracao.innerHTML = ["❤️","💕","💖","💗","💓"][Math.floor(Math.random() * 5)];
-
-        coracao.style.left = Math.random() * 100 + "%";
-
-        coracao.style.animationDuration =
-            (3 + Math.random() * 4) + "s";
-
-        document.body.appendChild(coracao);
-
-        setTimeout(function() {
-            coracao.remove();
-        }, 7000);
+        feedback.textContent="😂 Essa foi quase! Mas vale o carinho.";
 
     }
 
+    document.querySelectorAll("#opcoes button")
+    .forEach(b=>b.disabled=true);
+
+    setTimeout(()=>{
+
+        perguntaAtual++;
+
+        if(perguntaAtual<perguntas.length){
+
+            carregarPergunta();
+
+        }else{
+
+            document.getElementById("progress").style.width="100%";
+
+            document.getElementById("pergunta").textContent=
+            "Desafio concluído! 🌻";
+
+            document.getElementById("opcoes").innerHTML="";
+
+            document.getElementById("feedback").innerHTML=
+            "Você acertou "+acertos+" de "+perguntas.length+"! 💛";
+
+            setTimeout(()=>irPara(4),1800);
+
+        }
+
+    },1100);
 }
 
+function abrirPresente(numero){
 
-function finalSurpresa() {
+    const mensagens={
+        1:"💛 Prêmio 1: um abraço daqueles bem apertados!",
+        2:"🌻 Prêmio 2: uma dose infinita de carinho!",
+        3:"✨ Prêmio 3: a certeza de que você é muito amada!"
+    };
 
-    proximaTela(7);
+    document.getElementById("reveal").textContent=
+    mensagens[numero];
 
-    for(let i = 0; i < 5; i++) {
-        setTimeout(criarCoracoes, i * 300);
+    presentes++;
+
+    criarCoracoes(8);
+
+    if(presentes>=1){
+
+        document.getElementById("btnMemorias")
+        .style.display="inline-block";
+
     }
-
 }
 
-</script>
+function virar(elemento){
 
-</body>
-</html>
+    elemento.classList.toggle("open");
+
+    criarCoracoes(3);
 }
 
-h1 {
-    font-size: 45px;
+function abrirCarta(){
+
+    document.getElementById("carta").style.display="block";
+
+    document.getElementById("abrirCarta").style.display="none";
+
+    document.getElementById("finalBtn").style.display="inline-block";
+
+    criarCoracoes(15);
 }
 
-p {
-    font-size: 22px;
+function criarCoracoes(qtd){
+
+    const emojis=["💛","🌻","✨","💫","🤍"];
+
+    for(let i=0;i<qtd;i++){
+
+        setTimeout(()=>{
+
+            const heart=document.createElement("div");
+
+            heart.className="heart";
+
+            heart.textContent=
+            emojis[Math.floor(Math.random()*emojis.length)];
+
+            heart.style.left=
+            Math.random()*100+"vw";
+
+            heart.style.fontSize=
+            (18+Math.random()*20)+"px";
+
+            heart.style.animationDuration=
+            (3+Math.random()*2)+"s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(()=>heart.remove(),5500);
+
+        },i*100);
+    }
 }
 
-button {
-    background: white;
-    color: #ff4f81;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 30px;
-    font-size: 20px;
-    cursor: pointer;
-    margin-top: 20px;
+function finalizar(){
+
+    const counter=document.getElementById("counter");
+
+    let numero=0;
+
+    const intervalo=setInterval(()=>{
+
+        numero++;
+
+        counter.textContent=numero+"%";
+
+        if(numero>=100){
+
+            clearInterval(intervalo);
+
+            document.getElementById("finalMessage").innerHTML=`
+
+            <div style="
+            margin-top:25px;
+            padding:25px;
+            background:#fff8d2;
+            border-radius:20px;
+            line-height:1.8;
+            ">
+
+            <h2>100% de amor! 💛</h2>
+
+            <p>
+            Mãe, obrigada por existir, por cuidar,
+            por amar e por fazer parte da minha vida.
+            </p>
+
+            <p style="margin-top:15px">
+            🌻 Eu te amo infinitamente. 🌻
+            </p>
+
+            </div>
+
+            `;
+
+            criarCoracoes(45);
+
+        }
+
+    },20);
 }
 
-button:hover {
-    transform: scale(1.1);
+
+/* ESTRELAS */
+
+for(let i=0;i<25;i++){
+
+    const star=document.createElement("div");
+
+    star.className="star";
+
+    star.textContent="✦";
+
+    star.style.left=Math.random()*100+"%";
+
+    star.style.top=Math.random()*100+"%";
+
+    star.style.fontSize=(8+Math.random()*12)+"px";
+
+    star.style.animationDelay=
+    Math.random()*2+"s";
+
+    document.getElementById("stars").appendChild(star);
 }
-</style>
-</head>
 
-<body>
-
-<div class="container">
-
-<h1>Oi, meu amor! ❤️</h1>
-
-<p>Eu preparei uma surpresa especialmente para você...</p>
-
-<p>Você está pronto? 🥰</p>
-
-<button onclick="comecar()">Clique aqui 💕</button>
-
-</div>
-
-<script>
-function comecar() {
-    alert("Então vamos começar nossa surpresa! ❤️");
-}
 </script>
 
 </body>
